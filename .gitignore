@@ -1,0 +1,20 @@
+# Keep this preview free of local game data and build output.
+*.dll
+*.exe
+*.obj
+*.pdb
+*.lib
+*.exp
+*.bsa
+*.esm
+*.esp
+*.fos
+*.bin
+*.log
+backups/
+work/
+outputs/
+Fallout3VR-capture*/
+pending-restore.json
+FalloutPrefs*.ini
+tracking*.txt
