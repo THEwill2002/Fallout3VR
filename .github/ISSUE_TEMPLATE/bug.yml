@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a reproducible problem in a test build.
+title: "[Bug] "
+body:
+  - type: input
+    id: build
+    attributes:
+      label: Mod build and rendering profile
+      placeholder: "0.64 / UHD"
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Test setup
+      description: Game executable version, headset, OpenXR runtime, GPU, and relevant mods.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps, expected result, and actual result
+      description: For visual defects, mention whether one eye closed changes anything.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Optional screenshot or short log excerpt
+      description: Remove personal paths. Do not upload game assets, saves, raw F8 captures, or complete unreviewed logs.
