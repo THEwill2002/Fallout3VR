@@ -4,7 +4,7 @@
 
 An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked controllers, controller locomotion, and a desktop mirror for recording.
 
-**First playable alpha: v0.1.0-alpha.1 (build 0.70). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.1).**
+**First playable alpha: v0.1.0-alpha.2 (build 0.70). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.2).**
 
 [Guide français](docs/GUIDE-FR.md) · [Controls](docs/CONTROLS.md) · [Testing and bug reports](CONTRIBUTING.md)
 
@@ -83,3 +83,9 @@ Do not upload game assets, saves, diagnostic mesh captures, or an unreviewed cop
 The initial candidate contains playable binaries and launcher scripts. A project source-code license has not been selected. Binary use permission and third-party notices are included in the package; no open-source status is claimed.
 
 This is an unofficial fan project, not affiliated with or endorsed by Bethesda or Meta. Fallout game files are not included.
+
+
+
+
+## Alpha.2 portability fix
+The launcher skips absent drives referenced by old Steam library entries, runtime paths or GamePath settings. It keeps searching available locations and offers folder selection when needed. The renderer remains build 0.70. The Razer Blade 15 / RTX 2060 report is a reported launch failure, not a confirmed compatible setup; retesting this fix is pending.
