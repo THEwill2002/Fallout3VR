@@ -1,6 +1,6 @@
 # Testing and bug reports
 
-The first alpha download is still awaiting final launcher validation. Feedback forms are already available in [GitHub Issues](https://github.com/THEwill2002/Fallout3VR/issues/new/choose). A GitHub account is needed to submit a report. French and English are welcome.
+The first alpha is experimental. Feedback forms are available in [GitHub Issues](https://github.com/THEwill2002/Fallout3VR/issues/new/choose). A GitHub account is needed to submit a report. French and English are welcome.
 
 - Choose **Bug report** for a reproducible defect. Search existing issues first and add evidence to a matching report instead of opening a duplicate.
 - Choose **Alpha feedback** for a successful compatibility test, performance observations, or a feature suggestion. Successful launch, gameplay, and normal shutdown reports on another PC are especially useful.
