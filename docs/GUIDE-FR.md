@@ -2,7 +2,7 @@
 
 Si le jeu de base nécessite le patch Intel, voici sa page originale : [Intel HD graphics Bypass package de Bren712](https://www.nexusmods.com/fallout3/mods/17209). Suivre les instructions de son auteur et vérifier le fonctionnement du jeu sans VR. Ce patch n’est pas obligatoire sur tous les PC, ni inclus dans l’alpha. Conserver votre `d3d9.dll` s’il fonctionne déjà ; le lanceur VR le préserve.
 
-Extraire tout le ZIP, connecter le Quest au PC via Virtual Desktop ou SteamVR, réveiller les deux manettes, puis double-cliquer **Fallout3VR.exe**. Steam doit être connecté et le jeu de base doit déjà fonctionner. Le lanceur démarre directement Fallout3.exe, sans la fenêtre Start/Settings, et active la VR automatiquement.
+Extraire tout le ZIP, connecter le Quest au PC via Virtual Desktop ou SteamVR, réveiller les deux manettes, puis double-cliquer **THEwill_Fallout3_VR.exe**. Steam doit être connecté et le jeu de base doit déjà fonctionner. Le lanceur démarre directement Fallout3.exe, sans la fenêtre Start/Settings, et active la VR automatiquement.
 
 Le dossier Steam est détecté ; s’il ne l’est pas, une sélection de dossier apparaît. Le runtime est sélectionné automatiquement sans modifier les réglages OpenXR globaux. Si les deux sont installés, SteamVR déjà lancé a priorité, puis le runtime enregistré. Le lanceur essaie l’autre runtime disponible si le casque n’est pas prêt. Il ne peut pas établir à votre place la connexion du casque dans l’application de streaming.
 
