@@ -4,7 +4,7 @@
 
 An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked controllers, controller locomotion, and a desktop mirror for recording.
 
-**Status: private pre-alpha testing. A public alpha is being prepared; no public download is available yet.**
+**Status: first playable alpha candidate packaged. The GitHub release draft is awaiting final validation of the new launcher; no public binary download yet.**
 
 [Guide français](docs/GUIDE-FR.md) · [Controls](docs/CONTROLS.md) · [Testing and bug reports](CONTRIBUTING.md)
 
@@ -25,7 +25,7 @@ These features have been tested during development on one setup. Compatibility w
 
 | Feature | Current scope |
 | --- | --- |
-| Two-handed grip | BB gun support; other weapons require the experimental universal mode. |
+| Two-handed grip | BB gun enabled by default; Ctrl+B remembers opt-in for each recognized weapon mesh. Compatibility varies. |
 | Physical melee gestures | Police baton swings trigger a native game attack. This is not full weapon-to-enemy collision simulation. |
 | Pip-Boy map zoom | Confirmed working by the development tester in build 0.64. |
 | Independent arms | Works on recognized meshes; other outfits and weapons need testing. |
@@ -35,16 +35,16 @@ These features have been tested during development on one setup. Compatibility w
 
 - Fallout 3 on Steam, exact executable build 1.7.0.4 used by the prototype.
 - Windows PC with an NVIDIA RTX 4070.
-- Meta Quest 3 using Virtual Desktop and OpenXR.
+- Meta Quest 3 using Virtual Desktop and SteamVR/OpenXR. The SteamVR correction was confirmed by the development tester.
 - The development installation requires the Intel graphics compatibility patch. The mod preserves the existing d3d9.dll and does not distribute that patch.
 
 Quest Link, other headsets, other GPUs, and other Fallout 3 executable versions are not yet confirmed. A supported OpenXR runtime and a legally acquired copy of Fallout 3 are required.
 
 ## Before the public alpha
 
-The current development launchers still contain machine-specific paths. They are not a general-purpose installer yet. Do not copy the development workspace into your game folder.
+The new portable **Fallout3VR.exe** detects Steam libraries and Virtual Desktop/SteamVR, then launches Fallout3.exe directly in VR without the Bethesda Start/Settings window. Extract the entire release ZIP; do not copy only the EXE. HD is the default, with Normal/UHD and runtime overrides in settings.json.
 
-The public package needs portable installation and restoration, a dependency and licensing review, and a clean-install test on another PC before release. Public installation instructions and downloads will be added when that package is ready.
+Temporary loader DLLs and display preferences are backed up and restored after closing the game; crash recovery and DLL conflict protection are included. Fixture tests, extracted-package detection checks and six native test suites pass. The new complete launch/quit flow in a headset and a clean second-PC test remain unverified.
 
 ## Important limitations
 
@@ -60,7 +60,8 @@ The public package needs portable installation and restoration, a dependency and
 - Improve controller-only menu navigation.
 - Expand reliable weapon identification for two-handed grip and melee gestures.
 - Test more outfits, interiors, and long sessions.
-- Prepare a portable installer and a reproducible public source/build package.
+- Validate the new portable launcher on a second PC.
+- Prepare a reproducible public source/build package if the project source is released.
 
 ## Feedback
 
@@ -70,7 +71,8 @@ Do not upload game assets, saves, diagnostic mesh captures, or an unreviewed cop
 
 ## Project and third-party licensing
 
-The project code license is still being selected. No license grant for the project code is asserted by this preview. Third-party components retain their own licenses and notices.
+The initial candidate contains playable binaries and launcher scripts. A project source-code license has not been selected. Binary use permission and third-party notices are included in the package; no open-source status is claimed.
 
 This is an unofficial fan project, not affiliated with or endorsed by Bethesda or Meta. Fallout game files are not included.
+
 
