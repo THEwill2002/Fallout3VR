@@ -1,4 +1,4 @@
-# Controller controls — development build 0.64
+# Controller controls — alpha 0.1.0-alpha.1
 
 Quest controller labels are used below. Both controllers must be awake and tracked. Controls are contextual.
 
@@ -39,8 +39,15 @@ Zoom was confirmed working by the development tester on October 1, 2026. It is o
 - Ctrl+T: switch smooth / snap turning.
 - Ctrl+U: show/hide the gameplay HUD.
 - Ctrl+J: toggle tracked weapon control; it is already enabled automatically.
-- Ctrl+B: experimental universal two-handed mode, including unvalidated weapons.
+- Ctrl+B: enable/disable two-handed grip for the currently recognized weapon mesh; remembered per mesh.
 - Ctrl+End: close the VR scene.
 
 F8 diagnostics are for local development. Do not publish the resulting game mesh captures.
+
+
+- Ctrl+Shift+R: compare SteamVR rotational reprojection (on by default in SteamVR).
+- Ctrl+Alt+W: compare stable water material reflection with native planar reflection.
+- Ctrl+Alt+H: two-step left-hand orientation calibration: first hold the real controller in the desired neutral pose and press, then rotate until the virtual hand looks correct and press again. Ctrl+Alt+Shift+H resets this user calibration.
+
+The launcher enables VR automatically. F6 remains a manual toggle. New-user calibration and free-hand mesh pose may differ from the development videos; no extracted pose data is shipped.
 
