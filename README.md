@@ -42,6 +42,10 @@ Quest Link, other headsets, other GPUs, and other Fallout 3 executable versions 
 
 ## Before the public alpha
 
+### Optional Intel compatibility patch
+
+If your base game needs the Intel workaround, use the original [Intel HD graphics Bypass package by Bren712 on Nexus Mods](https://www.nexusmods.com/fallout3/mods/17209) and follow its included instructions. This is not a requirement for every PC. Confirm Fallout 3 works without VR first, and keep an existing working `d3d9.dll`. Fallout3VR preserves that file; the patch is not bundled or installed automatically.
+
 The new portable **Fallout3VR.exe** detects Steam libraries and Virtual Desktop/SteamVR, then launches Fallout3.exe directly in VR without the Bethesda Start/Settings window. Extract the entire release ZIP; do not copy only the EXE. HD is the default, with Normal/UHD and runtime overrides in settings.json.
 
 Temporary loader DLLs and display preferences are backed up and restored after closing the game; crash recovery and DLL conflict protection are included. Fixture tests, extracted-package detection checks and six native test suites pass. The new complete launch/quit flow in a headset and a clean second-PC test remain unverified.
@@ -65,7 +69,7 @@ Temporary loader DLLs and display preferences are backed up and restored after c
 
 ## Feedback
 
-When public testing opens, please report one problem per issue with your game version, headset, runtime, rendering profile, and reproduction steps. See [the reporting guide](CONTRIBUTING.md).
+Use [GitHub Issues](https://github.com/THEwill2002/Fallout3VR/issues/new/choose): choose **Bug report** for a problem or **Alpha feedback** for compatibility results and suggestions. French and English are welcome. Successful tests on other setups are useful too. The forms are ready ahead of the public download; see [the reporting guide](CONTRIBUTING.md).
 
 Do not upload game assets, saves, diagnostic mesh captures, or an unreviewed copy of your logs.
 
@@ -74,5 +78,3 @@ Do not upload game assets, saves, diagnostic mesh captures, or an unreviewed cop
 The initial candidate contains playable binaries and launcher scripts. A project source-code license has not been selected. Binary use permission and third-party notices are included in the package; no open-source status is claimed.
 
 This is an unofficial fan project, not affiliated with or endorsed by Bethesda or Meta. Fallout game files are not included.
-
-
