@@ -6,7 +6,7 @@ body:
     id: build
     attributes:
       label: Mod build and rendering profile
-      placeholder: "0.64 / UHD"
+      placeholder: "0.1.0-alpha.1 / build 0.68 / HD"
     validations:
       required: true
   - type: textarea
