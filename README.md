@@ -4,7 +4,7 @@
 
 An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked controllers, controller locomotion, and a desktop mirror for recording.
 
-**Status: first playable alpha candidate packaged. The GitHub release draft is awaiting final validation of the new launcher; no public binary download yet.**
+**First playable alpha: v0.1.0-alpha.1 (build 0.70). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.1).**
 
 [Guide français](docs/GUIDE-FR.md) · [Controls](docs/CONTROLS.md) · [Testing and bug reports](CONTRIBUTING.md)
 
@@ -40,7 +40,7 @@ These features have been tested during development on one setup. Compatibility w
 
 Quest Link, other headsets, other GPUs, and other Fallout 3 executable versions are not yet confirmed. A supported OpenXR runtime and a legally acquired copy of Fallout 3 are required.
 
-## Before the public alpha
+## Download and start
 
 ### Optional Intel compatibility patch
 
@@ -48,9 +48,14 @@ If your base game needs the Intel workaround, use the original [Intel HD graphic
 
 The new portable **THEwill_Fallout3_VR.exe** detects Steam libraries and Virtual Desktop/SteamVR, then launches Fallout3.exe directly in VR without the Bethesda Start/Settings window. Extract the entire release ZIP; do not copy only the EXE. HD is the default, with Normal/UHD and runtime overrides in settings.json.
 
-Temporary loader DLLs and display preferences are backed up and restored after closing the game; crash recovery and DLL conflict protection are included. Fixture tests, extracted-package detection checks and six native test suites pass. The new complete launch/quit flow in a headset and a clean second-PC test remain unverified.
+Temporary loader DLLs and display preferences are backed up and restored after closing the game; crash recovery and DLL conflict protection are included. Fixture tests, extracted-package detection checks and six native test suites pass. The development tester confirmed improved HD/UHD results and correct startup/recenter orientation in build 0.70. A clean second-PC test remains unverified.
+
+Use **Launch-HD.cmd** or **Launch-UHD.cmd** to override the profile for one session. The EXE also accepts --hd / --uhd. Download the named playable ZIP, not GitHub’s automatic source archives.
 
 ## Important limitations
+
+- Known issue: the Pip-Boy model may be misaligned with the left wrist.
+- Intermittent startup crashes were reported; the cause and full resolution are not confirmed.
 
 - The renderer alternates eyes across frames; it does not render both eyes synchronously every frame.
 - Locomotion currently uses eight-direction keyboard input, not true analog speed.
@@ -69,7 +74,7 @@ Temporary loader DLLs and display preferences are backed up and restored after c
 
 ## Feedback
 
-Use [GitHub Issues](https://github.com/THEwill2002/Fallout3VR/issues/new/choose): choose **Bug report** for a problem or **Alpha feedback** for compatibility results and suggestions. French and English are welcome. Successful tests on other setups are useful too. The forms are ready ahead of the public download; see [the reporting guide](CONTRIBUTING.md).
+Use [GitHub Issues](https://github.com/THEwill2002/Fallout3VR/issues/new/choose): choose **Bug report** for a problem or **Alpha feedback** for compatibility results and suggestions. French and English are welcome. Successful tests on other setups are useful too. See [the reporting guide](CONTRIBUTING.md).
 
 Do not upload game assets, saves, diagnostic mesh captures, or an unreviewed copy of your logs.
 
