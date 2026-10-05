@@ -46,7 +46,7 @@ Quest Link, other headsets, other GPUs, and other Fallout 3 executable versions 
 
 If your base game needs the Intel workaround, use the original [Intel HD graphics Bypass package by Bren712 on Nexus Mods](https://www.nexusmods.com/fallout3/mods/17209) and follow its included instructions. This is not a requirement for every PC. Confirm Fallout 3 works without VR first, and keep an existing working `d3d9.dll`. Fallout3VR preserves that file; the patch is not bundled or installed automatically.
 
-The new portable **Fallout3VR.exe** detects Steam libraries and Virtual Desktop/SteamVR, then launches Fallout3.exe directly in VR without the Bethesda Start/Settings window. Extract the entire release ZIP; do not copy only the EXE. HD is the default, with Normal/UHD and runtime overrides in settings.json.
+The new portable **THEwill_Fallout3_VR.exe** detects Steam libraries and Virtual Desktop/SteamVR, then launches Fallout3.exe directly in VR without the Bethesda Start/Settings window. Extract the entire release ZIP; do not copy only the EXE. HD is the default, with Normal/UHD and runtime overrides in settings.json.
 
 Temporary loader DLLs and display preferences are backed up and restored after closing the game; crash recovery and DLL conflict protection are included. Fixture tests, extracted-package detection checks and six native test suites pass. The new complete launch/quit flow in a headset and a clean second-PC test remain unverified.
 
