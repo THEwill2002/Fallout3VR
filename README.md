@@ -4,7 +4,7 @@
 
 An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked controllers, controller locomotion, and a desktop mirror for recording.
 
-**First playable alpha: v0.1.0-alpha.4 (scene 0.72 / hook 0.71). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.4).**
+**First playable alpha: v0.1.0-alpha.4 (scene 0.72 / hook 0.71). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.5).**
 
 [Guide français](docs/GUIDE-FR.md) · [Controls](docs/CONTROLS.md) · [Testing and bug reports](CONTRIBUTING.md)
 
