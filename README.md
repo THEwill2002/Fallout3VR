@@ -4,7 +4,7 @@
 
 An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked controllers, controller locomotion, and a desktop mirror for recording.
 
-**First playable alpha: v0.1.0-alpha.5 (scene 0.72 / hook 0.71). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.5).**
+**First playable alpha: v0.1.0-alpha.5 (scene 0.74 / hook 0.71). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.5).**
 
 [Guide français](docs/GUIDE-FR.md) · [Controls](docs/CONTROLS.md) · [Testing and bug reports](CONTRIBUTING.md)
 
@@ -19,7 +19,7 @@ An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked contro
 - A desktop mirror for capturing gameplay.
 - Three rendering profiles, including an experimental UHD profile.
 
-These features have been tested during development on one setup. Compatibility with other hardware, game editions, mods, and runtimes is not established.
+Tested during development on Quest 3 / RTX 4070 and Razer Blade 15 (2019) / RTX 2060. These are limited test results, not broad compatibility guarantees.
 
 ## Experimental features
 
@@ -38,7 +38,7 @@ These features have been tested during development on one setup. Compatibility w
 - Meta Quest 3 using Virtual Desktop and SteamVR/OpenXR. The SteamVR correction was confirmed by the development tester.
 - The development installation requires the Intel graphics compatibility patch. The mod preserves the existing d3d9.dll and does not distribute that patch.
 
-Quest Link, other headsets, other GPUs, and other Fallout 3 executable versions are not yet confirmed. A supported OpenXR runtime and a legally acquired copy of Fallout 3 are required.
+Quest Link, other headsets and other Fallout 3 executable versions are not yet confirmed. An additional Quest 3 / Virtual Desktop / RTX 5060 Ti 8 GB tester reported visual defects; that setup is not marked fully compatible. A supported OpenXR runtime and a legally acquired copy of Fallout 3 are required.
 
 ## Download and start
 
@@ -48,11 +48,14 @@ If your base game needs the Intel workaround, use the original [Intel HD graphic
 
 The new portable **THEwill_Fallout3_VR.exe** detects Steam libraries and Virtual Desktop/SteamVR, then launches Fallout3.exe directly in VR without the Bethesda Start/Settings window. Extract the entire release ZIP; do not copy only the EXE. HD is the default, with Normal/UHD and runtime overrides in settings.json.
 
-Temporary loader DLLs and display preferences are backed up and restored after closing the game; crash recovery and DLL conflict protection are included. Fixture tests, extracted-package detection checks and six native test suites pass. The development tester confirmed improved HD/UHD results and correct startup/recenter orientation in build 0.70. A clean second-PC test remains unverified.
+Temporary loader DLLs and display preferences are backed up and restored after closing the game; crash recovery and DLL conflict protection are included. Fixture tests, extracted-package detection checks and six native test suites pass. The development tester confirmed improved HD/UHD results and correct startup/recenter orientation in build 0.70. The developer confirmed that alpha.5 resolves the repeated SteamVR switching/freezing on the Razer RTX 2060.
 
 Use **Launch-HD.cmd** or **Launch-UHD.cmd** to override the profile for one session. The EXE also accepts --hd / --uhd. Download the named playable ZIP, not GitHub’s automatic source archives.
 
 ## Important limitations
+
+- **Vault 101 prologue:** missing/displaced interior geometry and distorted right-hand rendering have been reported and reproduced by the developer. BB-gun lesson aiming can prevent progress. Full VR completion of the prologue is not yet confirmed.
+- **Vegetation:** floating bushes/foliage have been reported on an additional tester’s setup. Investigation is ongoing.
 
 - Known issue: the Pip-Boy model may be misaligned with the left wrist.
 - Intermittent startup crashes were reported; the cause and full resolution are not confirmed.
@@ -69,7 +72,7 @@ Use **Launch-HD.cmd** or **Launch-UHD.cmd** to override the profile for one sess
 - Improve controller-only menu navigation.
 - Expand reliable weapon identification for two-handed grip and melee gestures.
 - Test more outfits, interiors, and long sessions.
-- Validate the new portable launcher on a second PC.
+- Fix Vault 101 prologue rendering and BB-gun aiming on child arms.
 - Prepare a reproducible public source/build package if the project source is released.
 
 ## Feedback
@@ -84,26 +87,12 @@ The initial candidate contains playable binaries and launcher scripts. A project
 
 This is an unofficial fan project, not affiliated with or endorsed by Bethesda or Meta. Fallout game files are not included.
 
+## Alpha.5 — confirmed Razer freeze fix
 
+Scene build **0.74**, hook **0.71**. The release asset retains its tested filename **Fallout3VR-v0.1.0-alpha.5-rc.2-win64.zip**.
 
+Diagnostic output now uses a bounded background writer, so slow log output cannot stall the headset frame loop. Excess messages are dropped under backpressure. Unnecessary controller-profile diagnostic queries were removed. Resolution and controller mappings are unchanged. The developer confirmed the SteamVR/Fallout switching is resolved on the Razer RTX 2060; this does not establish a specific FPS increase or universal compatibility.
 
-## Alpha.2 portability fix (included)
-The launcher skips absent drives referenced by old Steam library entries, runtime paths or GamePath settings. It keeps searching available locations and offers folder selection when needed. The renderer remains build 0.70. The Razer Blade 15 / RTX 2060 now launches, but display interruptions and left-hand orientation were reported. Alpha.3 addresses those defects; headset retesting is pending.
+Includes the previous missing-drive detection, left-hand baseline, coherent image-pair and startup/recenter fixes. The current prologue and vegetation reports remain unresolved in this public build.
 
-
-
-## Alpha.3 display and left-hand fixes
-A delayed or temporarily missing eye image no longer returns to the three-sphere test scene after gameplay has appeared. The display commits a coherent stereo pair together and holds that last pair for up to one second; a longer interruption shows black until a fresh pair arrives. This reduces fallback flicker, but does not increase game FPS or fix every tracking/network interruption.
-Fresh installations now start with a left-hand model orientation baseline derived from the working Quest 3 development calibration. Existing saved calibrations take precedence. Ctrl+Alt+Shift+H resets to this baseline; Ctrl+Alt+H still provides two-step personal calibration. No captured mesh or per-user calibration file is shipped. Different hands/weapons can still need calibration, and the Pip-Boy wrist alignment remains a known issue.
-The renderer is build 0.71. Automated checks pass; visual validation of these fixes on the reporting laptop is pending. Alpha.2 missing-drive fixes remain included.
-
-
-## Alpha.4 — compositor continuity and copy optimization
-
-- Keeps the last released stereo layer for at most 250 ms during a brief loss of valid eye poses, rather than immediately submitting no application layer. Runtime visibility requests are still respected.
-- Accepts valid headset poses during inferred tracking, without requiring the additional tracked flags.
-- Exchanges coherent image resources instead of copying both images again on the GPU. Resolution is unchanged; uploads are skipped while the runtime asks the app not to render.
-- Adds XR submission counters to scene logs to distinguish invalid tracking, hidden frames and missing layers.
-- Retains the corrected default left-hand orientation and portable installation fixes.
-
-Scene build 0.72; game hook build 0.71. Native regression tests and a D3D11 software-device image readback test passed. The SteamVR switching symptom still needs confirmation on the affected laptop; this release does not claim a measured FPS improvement or a guaranteed fix for runtime/connection failures.
+ZIP SHA256: `c546a785c267c6c132b2cc334c5a65d4e1376e25182eae29b3dba77079b00c27`.
