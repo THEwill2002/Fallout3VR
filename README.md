@@ -4,7 +4,7 @@
 
 An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked controllers, controller locomotion, and a desktop mirror for recording.
 
-**First playable alpha: v0.1.0-alpha.3 (build 0.71). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.3).**
+**First playable alpha: v0.1.0-alpha.4 (scene 0.72 / hook 0.71). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.4).**
 
 [Guide français](docs/GUIDE-FR.md) · [Controls](docs/CONTROLS.md) · [Testing and bug reports](CONTRIBUTING.md)
 
@@ -96,3 +96,14 @@ The launcher skips absent drives referenced by old Steam library entries, runtim
 A delayed or temporarily missing eye image no longer returns to the three-sphere test scene after gameplay has appeared. The display commits a coherent stereo pair together and holds that last pair for up to one second; a longer interruption shows black until a fresh pair arrives. This reduces fallback flicker, but does not increase game FPS or fix every tracking/network interruption.
 Fresh installations now start with a left-hand model orientation baseline derived from the working Quest 3 development calibration. Existing saved calibrations take precedence. Ctrl+Alt+Shift+H resets to this baseline; Ctrl+Alt+H still provides two-step personal calibration. No captured mesh or per-user calibration file is shipped. Different hands/weapons can still need calibration, and the Pip-Boy wrist alignment remains a known issue.
 The renderer is build 0.71. Automated checks pass; visual validation of these fixes on the reporting laptop is pending. Alpha.2 missing-drive fixes remain included.
+
+
+## Alpha.4 — compositor continuity and copy optimization
+
+- Keeps the last released stereo layer for at most 250 ms during a brief loss of valid eye poses, rather than immediately submitting no application layer. Runtime visibility requests are still respected.
+- Accepts valid headset poses during inferred tracking, without requiring the additional tracked flags.
+- Exchanges coherent image resources instead of copying both images again on the GPU. Resolution is unchanged; uploads are skipped while the runtime asks the app not to render.
+- Adds XR submission counters to scene logs to distinguish invalid tracking, hidden frames and missing layers.
+- Retains the corrected default left-hand orientation and portable installation fixes.
+
+Scene build 0.72; game hook build 0.71. Native regression tests and a D3D11 software-device image readback test passed. The SteamVR switching symptom still needs confirmation on the affected laptop; this release does not claim a measured FPS improvement or a guaranteed fix for runtime/connection failures.
