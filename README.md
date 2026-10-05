@@ -4,7 +4,7 @@
 
 An experimental PC VR mod for Fallout 3, with 6DoF head tracking, tracked controllers, controller locomotion, and a desktop mirror for recording.
 
-**First playable alpha: v0.1.0-alpha.2 (build 0.70). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.2).**
+**First playable alpha: v0.1.0-alpha.3 (build 0.71). [Download the playable ZIP](https://github.com/THEwill2002/Fallout3VR/releases/tag/v0.1.0-alpha.3).**
 
 [Guide français](docs/GUIDE-FR.md) · [Controls](docs/CONTROLS.md) · [Testing and bug reports](CONTRIBUTING.md)
 
@@ -87,5 +87,12 @@ This is an unofficial fan project, not affiliated with or endorsed by Bethesda o
 
 
 
-## Alpha.2 portability fix
-The launcher skips absent drives referenced by old Steam library entries, runtime paths or GamePath settings. It keeps searching available locations and offers folder selection when needed. The renderer remains build 0.70. The Razer Blade 15 / RTX 2060 report is a reported launch failure, not a confirmed compatible setup; retesting this fix is pending.
+## Alpha.2 portability fix (included)
+The launcher skips absent drives referenced by old Steam library entries, runtime paths or GamePath settings. It keeps searching available locations and offers folder selection when needed. The renderer remains build 0.70. The Razer Blade 15 / RTX 2060 now launches, but display interruptions and left-hand orientation were reported. Alpha.3 addresses those defects; headset retesting is pending.
+
+
+
+## Alpha.3 display and left-hand fixes
+A delayed or temporarily missing eye image no longer returns to the three-sphere test scene after gameplay has appeared. The display commits a coherent stereo pair together and holds that last pair for up to one second; a longer interruption shows black until a fresh pair arrives. This reduces fallback flicker, but does not increase game FPS or fix every tracking/network interruption.
+Fresh installations now start with a left-hand model orientation baseline derived from the working Quest 3 development calibration. Existing saved calibrations take precedence. Ctrl+Alt+Shift+H resets to this baseline; Ctrl+Alt+H still provides two-step personal calibration. No captured mesh or per-user calibration file is shipped. Different hands/weapons can still need calibration, and the Pip-Boy wrist alignment remains a known issue.
+The renderer is build 0.71. Automated checks pass; visual validation of these fixes on the reporting laptop is pending. Alpha.2 missing-drive fixes remain included.
