@@ -1,4 +1,4 @@
-# Controller controls — alpha 0.1.0-alpha.1
+# Controller controls — alpha 0.1.0-alpha.2
 
 Quest controller labels are used below. Both controllers must be awake and tracked. Controls are contextual.
 
