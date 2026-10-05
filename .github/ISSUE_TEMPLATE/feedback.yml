@@ -1,0 +1,40 @@
+name: Alpha feedback
+description: Share compatibility results, performance observations, or suggestions. French or English welcome.
+title: "[Feedback] "
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of feedback
+      options:
+        - Compatibility test
+        - Performance observations
+        - Feature suggestion
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Mod version and rendering profile
+      placeholder: "0.1.0-alpha.1 / build 0.68 / HD"
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Your setup
+      description: Headset, GPU, CPU, game version, runtime (SteamVR or Virtual Desktop), connection method, and other mods.
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Test results or suggestion
+      description: What did you try? Mention session duration, launch and shutdown, controls, interiors and exteriors where relevant. For measured performance, include the measurement tool and headset refresh rate. Use Bug report for a specific defect.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Optional screenshots or short log excerpt
+      description: Remove personal paths. Do not upload game assets, saves, raw F8 captures, or complete unreviewed logs.
